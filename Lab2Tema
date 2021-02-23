@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+unsigned char CautareLiniara(short int *TabloudeCautare, short int ElementDeCautat)
+{
+	int contor, NumarElemente;
+	printf("Introduceti numarul de elemente:\n");
+	scanf("%d", &NumarElemente);
+	TabloudeCautare = (short int *)malloc(NumarElemente * sizeof(short int));
+	printf("Introduceti elemntele: \n");
+	for (contor = 0; contor < NumarElemente; contor++)  scanf("%d", &TabloudeCautare[contor]);
+	printf("Introdu elementul cautat: ");
+	scanf("%d", &ElementDeCautat);
+	for (contor = 0; contor < NumarElemente; contor++)
+		if (ElementDeCautat == TabloudeCautare[contor]){
+			printf("Elementul a fost gasit %d\n", contor + 1);
+			break;
+		}
+	if (contor >= NumarElemente)  printf("Elementul nu exista.\n");
+}
+int main()
+{
+	short int ElementDeCautat;
+	short int *TablouDeCautare;
+	CautareLiniara(&TablouDeCautare, &ElementDeCautat);
+	system("pause");
+	return 0;
+}
